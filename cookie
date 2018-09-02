@@ -1,0 +1,23 @@
+function setCookie(key,value,n){
+	if (n != 0) {
+		var d=new Date();
+		d.setDate(d.getDay()+n)
+		document.cookie=key+"="+value+";expires="+d;
+	} else{
+		document.cookie=key+"="+value;
+	}
+}
+function removeCookie(key){
+	setCookie(key,"",-1)
+}
+function getCookie(){
+	var str=document.cookie;
+	arr=str.split(";")
+	console.log(arr)
+	for (var i=0;i<arr.length;i++) {
+		if (arr[i].split("=")[0]==key) {
+			return arr[i].split("=")[1];
+		}
+	}
+	return "";
+}
